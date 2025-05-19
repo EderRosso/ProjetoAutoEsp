@@ -41,4 +41,46 @@ router.post('/', async (req, res) => {
 
 })
 
+
+router.put('/:id', async (req, res) => {
+    try {
+        const updateDeviceId = await Device.updateOne(
+            { _id: req.params.id },
+            {
+                kwh: req.body.kwh,
+                corrente: req.body.corrente,
+                voltagem: req.body.voltagem,
+                fp: req.body.fp
+            }
+        )
+        res.json({
+            success: true,
+            updated: updateDeviceId.nModified
+        })
+
+    } catch (error) {
+        res.json({
+            success: false,
+            message: "Erro ao atualizar device" + error
+        })
+    }
+})
+
+router.delete('/:id', async (req, res)=>{
+    try {
+        const deleteMedidasId = await Medidas.deleteOne({
+            _id: req.params.id
+        })
+        res.json({
+            success: true,
+            data: deleteMedidasId
+        })
+    } catch (error) {
+        res.json({
+            success: false,
+            data: "Erro ao deletar" + error
+        })
+    }
+})
+
 module.exports = router;
