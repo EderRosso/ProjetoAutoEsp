@@ -7,7 +7,7 @@ app.use(bodyParser.json())
 
 const api = require('./rotas/');
 app.use('/api', api);
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3080;
 
 console.log(process.env.MONGO_CONNECT);
 
