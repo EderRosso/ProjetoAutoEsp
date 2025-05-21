@@ -4,9 +4,10 @@
   "main": "server.js",
   "scripts": {
     "back": "nodemon server.js",
-    "frontend": "cd frontend && npm start",
+    "frontend": "npm start --prefix frontend",
     "dev": "concurrently \"npm run back\" \"npm rum frontend\"",
-    "start": "node index.js"
+    "start": "node index.js",
+    "render-postbuild": "npm install --prefix frontend && npm run build -- prefix frontend"
   },
   "keywords": [],
   "author": "",
