@@ -68,12 +68,12 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res)=>{
     try {
-        const deleteMedidasId = await Medidas.deleteOne({
+        const deleteDeviceId = await Device.deleteOne({
             _id: req.params.id
         })
         res.json({
             success: true,
-            data: deleteMedidasId
+            data: deleteDeviceId
         })
     } catch (error) {
         res.json({
