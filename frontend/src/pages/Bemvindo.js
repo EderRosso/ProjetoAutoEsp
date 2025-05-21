@@ -4,7 +4,6 @@ import SecaoResumo from "../components/SecaoResumo";
 const Bemvindo = ()=>{
     return(
         <div>
-            <h1>Bem-vindo!!!</h1>
             <SecaoResumo/>
         </div>
     );  
